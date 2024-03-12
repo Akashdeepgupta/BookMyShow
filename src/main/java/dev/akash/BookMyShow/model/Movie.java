@@ -1,6 +1,6 @@
 package dev.akash.BookMyShow.model;
 
-import dev.akash.BookMyShow.model.constants.AuditoriumFeature;
+import dev.akash.BookMyShow.model.constants.MovieFeature;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,5 +19,6 @@ public class Movie extends BaseModel {
     @ElementCollection
     @Enumerated(EnumType.STRING)
     private List<MovieFeature> movieFeatures;
+    //TODO : add more attributes like release_date,language,runtime,genre etc
 
 }
