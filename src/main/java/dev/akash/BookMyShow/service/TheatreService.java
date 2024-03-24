@@ -23,17 +23,30 @@ public class TheatreService {
         return null;
     }
 
+    public Theatre save(Theatre theatre){
+        return theatreRepository.save(theatre);
+    }
+
+    public Theatre getTheatreById(int theatreId){
+        return theatreRepository.findById(theatreId).get();
+
+    }
+
     public Theatre addTheatre(String theatreName,String theatreAddress,int cityId){
+
         //created and added new theatre
         Theatre theatre = new Theatre();
         theatre.setName(theatreName);
         theatre.setAddress(theatreAddress);
         theatreRepository.save(theatre);
+
         //add the theatre to the corresponding city
         City city =  cityService.getCityById(cityId);
         List<Theatre> theatreList = city.getTheatres();
         theatreList.add(theatre);
         city.setTheatres(theatreList);
+
+        //update the city
         cityService.saveCity(city);
         return theatre;
     }
