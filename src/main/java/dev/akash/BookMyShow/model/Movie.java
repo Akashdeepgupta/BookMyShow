@@ -21,4 +21,9 @@ public class Movie extends BaseModel {
     private List<MovieFeature> movieFeatures;
     //TODO : add more attributes like release_date,language,runtime,genre etc
 
+
+    public Movie(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 }
